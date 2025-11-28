@@ -14,7 +14,7 @@ connectDatabase();
 name();
 function name() {
     setTimeout(One, 2000); // Delay in milliseconds
-    // console.log('Start:');
+    console.log('Start:');
 
 }
 
