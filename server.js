@@ -1,6 +1,7 @@
 import express from 'express';
 import { connectDatabase, client } from './db/dbConnection.js';
 import dotenv from "dotenv";
+import cron from 'node-cron';
 dotenv.config();
 
 const app = express();
@@ -18,20 +19,23 @@ app.get('/', async (req, res) => {
 res.send('Cron jobs are set for updates.' ,alert)
 })
 
-// Set up cron jobs
-cron.schedule('0 */12 * * *', async () => {
-    await One();
-});
+let isEvening = true; // Start with the Evening function
 
-cron.schedule('0 */12 * * *', async () => {
-    await Two();
+// Set up cron jobs
+cron.schedule('* * * * *', async () => {
+ if (isEvening) {
+        await One(); // Update to 'Evenig'
+    } else {
+        await Two(); // Update to 'mornig'
+    }
+    isEvening = !isEvening; // Toggle the flag
 });
 
 async function One() {
     try {
         const result = await client.query(`UPDATE active SET active = 'Evenig' WHERE id=1;`);
         console.log('Evenig:', result);
-        alert='Update to Evenig'
+        alert='Update to Evenig'+result
     } catch (error) {
         console.error('Database query error:', error); // Log detailed error
     }
@@ -42,7 +46,7 @@ async function Two() {
     try {
         const result = await client.query(`UPDATE active SET active = 'mornig' WHERE id=1;`);
         console.log('Mornig:', result); // Log the results
-        alert='Update to Mornig' 
+        alert='Update to Mornig'+result
     } catch (error) {
         console.error('Database query error:', error); // Log detailed error
     }
