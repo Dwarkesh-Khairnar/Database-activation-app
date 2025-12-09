@@ -2,11 +2,8 @@
   "name": "active",
   "version": "1.0.0",
   "type": "module",
-  "main": "server.js",
   "dependencies": {
     "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "node-cron": "^4.2.1",
     "pg": "^8.16.3"
   }
 }
