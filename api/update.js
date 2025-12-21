@@ -7,6 +7,10 @@ export default async function handler(req, res) {
  let key=new Date().getDay()
     let day="";
     switch (key) {
+        case 0:
+            day="Sunday"
+            break;
+    
         case 1:
             day="Monday"
             break;
@@ -29,10 +33,6 @@ export default async function handler(req, res) {
     
         case 6:
             day="Saturday"
-            break;
-    
-        case 7:
-            day="Sunday"
             break;
     
         default:
