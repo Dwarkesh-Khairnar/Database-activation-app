@@ -17,3 +17,5 @@
 - use official cron-job.org
   - we not need to sepret deployed
   - no need to spend money
+
+good for auto and repeat work
