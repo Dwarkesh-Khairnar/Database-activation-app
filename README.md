@@ -1,4 +1,4 @@
-## cron job Eg application with vercel
+## Cron job Eg application with vercel
 
 - This application help to run one code one time on day
 
@@ -12,6 +12,9 @@
 - No front end 
 - only backend work
 - vercel
+### Stack
+ - Node.js
+ 
 
 ## Suggestion 
 - use official cron-job.org
