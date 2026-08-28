@@ -11,7 +11,7 @@
 ## Tech
 - No front end 
 - only backend work
-- vercel
+- vercel or Netflix (server less application)
 ### Stack
  - Node.js
  
